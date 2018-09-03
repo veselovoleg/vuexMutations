@@ -7,6 +7,7 @@
                 <app-another-result></app-another-result>
                 <hr>
                 <app-counter></app-counter>
+                <hr>
                 <app-another-counter></app-another-counter>
             </div>
         </div>
