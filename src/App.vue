@@ -9,23 +9,41 @@
                 <app-counter></app-counter>
                 <hr>
                 <app-another-counter></app-another-counter>
+                <hr>
+                <input type="text" name="" id="" v-model="value" @input="updateValue">
+                {{ value }}
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import Counter from './components/Counter.vue';
-    import Result from './components/Result.vue';
-    import AnotherResult from './components/AnotherResult.vue';
-    import AnotherCounter from './components/AnotherCounter.vue';
+import Counter from "./components/Counter.vue";
+import Result from "./components/Result.vue";
+import AnotherResult from "./components/AnotherResult.vue";
+import AnotherCounter from "./components/AnotherCounter.vue";
 
-    export default {
-        components: {
-            appCounter: Counter,
-            appResult: Result,
-            appAnotherResult: AnotherResult,
-            appAnotherCounter: AnotherCounter
-        }
+export default {
+  methods: {
+    updateValue(event) {
+      this.$store.dispatch("updateValue", event.target.value);
     }
+  },
+  computed: {
+    value: {
+      get() {
+        return this.$store.getters.value;
+      },
+      set(value) {
+        this.$store.dispatch("updateValue", value);
+      }
+    }
+  },
+  components: {
+    appCounter: Counter,
+    appResult: Result,
+    appAnotherResult: AnotherResult,
+    appAnotherCounter: AnotherCounter
+  }
+};
 </script>
