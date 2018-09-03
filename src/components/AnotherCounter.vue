@@ -1,7 +1,9 @@
 <template>
     <div>
-        <button class="btn btn-primary" @click="increment(1000)">Increment</button>
-        <button class="btn btn-primary" @click="decrement(500)">Decrement</button>
+        <button class="btn btn-primary" @click="asyncIncrement({by: 50, 
+        duration: 2000})">Increment</button>
+        <button class="btn btn-primary" @click="asyncDecrement({by: 50, 
+        duration: 2000})">Decrement</button>
     </div>
 </template>
 
@@ -10,7 +12,7 @@ import { mapActions } from "vuex";
 
 export default {
   methods: {
-    ...mapActions(["increment", "decrement"])
+    ...mapActions(["asyncIncrement", "asyncDecrement"])
   }
 };
 </script>
