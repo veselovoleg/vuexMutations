@@ -6,11 +6,15 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+    import {mapActions} from 'vuex';
+    import * as types from '../store/types';
 
-export default {
-  methods: {
-    ...mapMutations(["increment", "decrement"])
-  }
-};
+    export default {
+        methods: {
+            ...mapActions({
+                increment: types.COUNTER_INCREMENT,
+                decrement: types.COUNTER_DECREMENT
+            })
+        }
+    }
 </script>

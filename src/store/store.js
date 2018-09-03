@@ -1,11 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-Vue.use(Vuex);
-
 import counter from './modules/counter';
-import * as actions from './actions';
-import * as mutations from './mutations';
-import * as getters from './getters';
+
+import actions from './actions';
+import getters from './getters';
+import mutations from './mutations';
+
+Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
